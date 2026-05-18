@@ -1,13 +1,135 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #08080a;
+    color: #e2e8f0;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* ── Ensure header is always on top across all pages ── */
+header.fixed {
+  z-index: 9999 !important;
+  position: fixed !important;
+}
+
+/* Prevent page-level overflow from clipping fixed header */
+.pg,
+.av-root,
+.sb-page,
+.rg-page,
+.mb-page {
+  overflow-x: clip !important;
+}
+
+* {
+  font-family: "Inter", sans-serif !important;
+}
+
+.material-icons {
+  font-family: 'Material Icons' !important;
+}
+
+.material-icons-outlined {
+  font-family: 'Material Icons Outlined' !important;
+}
+
+h1, h2, h3, h4, h5, h6,
+h1 *, h2 *, h3 *, h4 *, h5 *, h6 *,
+[class*="title"], [class*="Title"],
+[class*="heading"], [class*="Heading"],
+[class*="hero-word"],
+.text-3xl, .text-4xl, .text-5xl, .text-6xl, .text-7xl, .text-8xl, .text-9xl,
+.stat-card > div:first-child,
+.journey-card > div:nth-child(2),
+.val-card > div:nth-child(2),
+.service-cell > h3,
+.service-cell > div:first-child,
+.hp-num-val, .hp-num-val *,
+.hp-card-title, .hp-why-title, .hp-process-title, .hp-cta-title, .hp-ach-title {
+  font-family: "Bricolage Grotesque", sans-serif !important;
+  font-optical-sizing: auto !important;
+  font-variation-settings: "wdth" 100 !important;
+}
+
+@layer utilities {
+  .btn-3d {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .btn-gold {
+    background-color: #c5a059;
+    color: #08080a;
+    box-shadow: 0 4px 0 #8a6d3b, 0 8px 15px rgba(197, 160, 89, 0.2);
+  }
+
+  .btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #8a6d3b, 0 12px 20px rgba(197, 160, 89, 0.3);
+  }
+
+  .btn-gold:active {
+    transform: translateY(4px);
+    box-shadow: none;
+  }
+
+  .btn-white {
+    background-color: #ffffff;
+    color: #08080a;
+    box-shadow: 0 4px 0 #d1d1d1, 0 10px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .btn-white:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #d1d1d1, 0 15px 25px rgba(0, 0, 0, 0.5);
+  }
+
+  .btn-white:active {
+    transform: translateY(4px);
+    box-shadow: none;
+  }
+
+  .glass-card {
+    background: rgba(12, 13, 18, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid #1e293b;
+  }
+
+  .bg-brand-bg {
+    background-color: #08080a !important;
+  }
+
+  .bg-brand-surface {
+    background-color: #0c0d12 !important;
+  }
+
+  .bg-brand-surface-light {
+    background-color: #12141c !important;
+  }
+
+  .text-white {
+    color: #ffffff !important;
+  }
+
+  .text-slate-200 {
+    color: #e2e8f0 !important;
+  }
+
+  .text-slate-300 {
+    color: #cbd5e1 !important;
+  }
+
+  .text-slate-400,
+  .text-slate-500 {
+    color: #94a3b8 !important;
+  }
+
+  .border-brand-border {
+    border-color: #1e293b !important;
+  }
 }
