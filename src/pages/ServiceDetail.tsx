@@ -8,28 +8,6 @@ const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // e.g. 'service_abc123'
 const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // e.g. 'template_xyz789'
 const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // e.g. 'abc123XYZ'
 
-/* ─── animated counter ─── */
-function Counter({ target, suffix = '' }: { target: number; suffix?: string }) {
-  const [val, setVal] = useState(0);
-  useEffect(() => {
-    const delay = setTimeout(() => {
-      let start = 0;
-      const duration = 1500;
-      const totalSteps = 60;
-      const stepTime = Math.floor(duration / totalSteps);
-      const increment = Math.ceil(target / totalSteps);
-      const timer = setInterval(() => {
-        start += increment;
-        if (start >= target) { setVal(target); clearInterval(timer); }
-        else setVal(start);
-      }, stepTime);
-      return () => clearInterval(timer);
-    }, 700);
-    return () => clearTimeout(delay);
-  }, [target]);
-  return <span>{val.toLocaleString()}{suffix}</span>;
-}
-
 /* ─── Particle canvas background ─── */
 function ParticleBg() {
   const canvasRef = useRef<HTMLCanvasElement>(null);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 
 const Appointment: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -9,19 +9,9 @@ const Appointment: React.FC = () => {
     name: '', email: '', phone: '',
     service: '', date: '', time: ''
   });
-  const [focused, setFocused] = useState<string | null>(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [submitted, setSubmitted] = useState(false);
   const [finalSuccess, setFinalSuccess] = useState(false);
   const pageRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const onMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener('mousemove', onMove);
-    return () => window.removeEventListener('mousemove', onMove);
-  }, []);
 
   const services = [
     'Business Consultation', 'Company Registration',
@@ -190,12 +180,6 @@ Message : ${formData.message || 'N/A'}`;
     maxDate.setHours(0, 0, 0, 0);
     return selectedDate >= minDate && selectedDate <= maxDate;
   };
-
-  const orbs = [
-    { cx: '10%', cy: '20%', r: 280, delay: 0 },
-    { cx: '85%', cy: '60%', r: 220, delay: 2 },
-    { cx: '50%', cy: '90%', r: 180, delay: 4 },
-  ];
 
   return (
     <>

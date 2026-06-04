@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 const AVATAR_GRADIENTS = [
   ["#c5a059", "#d4af37"],
@@ -135,7 +135,6 @@ const SnowflakeIcon = () => (
 export default function TestimonialsSection() {
   const [activeIndex, setActiveIndex] = useState(3);
   const [animating, setAnimating] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
 
   const total = testimonials.length;
 
